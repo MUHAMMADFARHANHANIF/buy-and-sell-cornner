@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body class=" w-swh h-svh items-center justify-center bg- ">
+    
+<div class="  " >
+    <div class="navbar bg-blue-500 ">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl text-white">Buy / Sells Corner</a>
+        </div>
+        <div class="flex-none gap-2">
+          <!-- <div class="form-control">
+            <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+          </div> -->
+          <div class="dropdown dropdown-end">
+            <!-- <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+            </div> -->
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+      
+    <form id="form">
+    <div class="flex justify-center items-center 	h-[89%]		 w-[100%]   ">
+        <div class=" p-7 justify-center items-center border border-gray-400 rounded-box   w-[47%]  bg-[#FFF6F6]">
+            <div class="font-bold text-xl">
+            
+        <!-- <label for="firstname" >First Name</label><br> -->
+        <input type="text" id="firstname" placeholder="Enter Your First Name" class="input input-bordered  w-au w-full	 my-2 bg-[#FFF6F6] " required/><br>
+        
+        <!-- <label for="lastname"  >Last Name</label><br> -->
+        <input type="text" id="lastname"  placeholder="Enter Your Last Name" class="input input-bordered  my-3 w-full bg-[#FFF6F6]" required/>
+        <label for="email" >Email</label><br>
+        <input type="email" id="email" placeholder="Enter Your Email" class="input input-bordered  w-au w-full	 my-3 bg-[#FFF6F6] "required /><br>
+        <!-- <input type="file"class="file-input file-input-bordered file-input-secondary w-full max-w-xs" /> -->
+        <label for="password" class="" >Password</label><br>
+        <input type="password" id="password"  placeholder="Enter Password" class="input input-bordered  my-3 w-full bg-[#FFF6F6]" required />
+        <input type="file" id="userimage" class="file-input file-input-bordered file-input-primary w-full " required   />
+    </div> 
+       
+       <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-3  text-xl mb-3 ">Rigister</button><br>
+        <a class="mt-2 underline text-blue-700" href="login.html">Already a User</a>
+    </div>
+</form>
+
+</div>
+</div>
+
+
+
+
+<script type="module" src="/script/register.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+</html>
