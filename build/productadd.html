@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <!-- nav bar started  -->
+
+
+    <div class="navbar bg-blue-500 ">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl text-white">Buy / Sells Corner</a>
+        </div>
+
+        <div class="flex-none gap-2" id="navbar">
+            <!-- <div class="form-control">
+                <input type="text" placeholder="Search" class="input input-bordered md:w-auto" />
+              </div> -->
+              
+              <div class="dropdown dropdown-end flex items-center" id="loginAvater">
+                  <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                      <div class="w-10 rounded-full" id="userimage">
+                          <img
+                          alt="Tailwind CSS Navbar component"
+                          src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />
+                         
+                        </div>
+                    </div>
+                    <ul
+                    tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li>
+                        <a href="index.html" class="justify-between">
+                            Home
+                            <span class="badge">New</span>
+                        </a>
+                    </li>
+                    <li></li>
+                    <li><a  id="logout">Logout</a></li>
+                    <!-- <li><button ></button> </li> -->
+                </ul>
+                <!-- <div id="username" class="text-xl capitalize text-white"></div> -->
+            </div>
+    
+        </div>
+
+
+      </div>
+
+
+      <!-- nav bar ended  -->
+
+
+<!-- product add form -->
+
+      <main class="w-[100%] h-[80vh] justify-center content-center ">
+        <form id="form">
+        <div id="hero"  class="w-[80%] bg-blu-500  h-[100%] justify-center  m-auto items-center borer  text-center">
+            <h1 class=" text-[2.5rem] m-1 m">Post ADD</h1>
+    <!-- image div  -->
+        <div  class="w-[60vw] bg-[#4C68FF] h-[35vh] content-center  m-auto border rounded-2xl cursor-pointer	" id="productimage">
+            <div class="bg-base-00 text-white w-[50vw]  mt-8 m-auto  items-center    h-52">
+                
+                <img class="m-auto "  width="100vw" height="100vh"   src="/add_photo_alternate_outlined.png" alt="">
+                <h2 class="text-[1.3rem] uppercase">uplord Product Photo</h2>
+            </div>
+        </div>
+
+
+        
+        <!-- <div class="w-[60vw] bg-[#4C68FF] h-[35vh] content-center m-auto border rounded-2xl cursor-pointer" id="productimage">
+          
+          <div class="bg-base-00 text-white w-[50vw] mt-8 m-auto items-center h-52">
+              
+              <img class="m-auto" width="100vw" height="100vh" src="/add_photo_alternate_outlined.png" alt="">
+              
+              <h2 class="text-[1.3rem] uppercase">Upload Product Photo</h2>
+          </div>
+      </div>
+       -->
+
+      <!-- Hidden File Input -->
+
+      <input type="file" id="fileInput" class="hidden" accept="image/*">
+   
+      
+<!-- input div  -->
+        <div class="w-[80%]  h-[45%]  content-center m-auto	 mt-2 ">
+            <label class="input input-bordered flex items-center gap-2 m-2">
+                
+                <input type="text" id="producttitle" class="grow" placeholder="Product Title" required />
+              </label>
+              <label class="input input-bordered flex items-center gap-2 m-2">
+                PD
+                <input type="text" id="productdiscription" class="grow" placeholder="Discription" required/>
+              </label>
+              <label class="input input-bordered flex items-center gap-2 m-2">
+                RS
+                <input type="number" id="productprice" class="grow" placeholder="Enter Price" required />
+              </label>
+              <label class="input input-bordered flex items-center gap-2 mt-5 m-2">
+                
+                <input type="text" id="ownername" class="grow" placeholder="Enter Your Name" required />
+              </label>
+              <label class="input input-bordered flex items-center gap-2 m-2">
+                
+                <input type="number" id="ownernumber" class="grow" placeholder="Enter Your Number" required/>
+              </label>
+             
+              <div class="m-5 text-right"><button type="submit" class="btn btn-primary bg-[#4c68ff] text-xl">Post Now</button></div>
+        </div>
+    </div>
+</form>
+      </main>
+
+
+
+
+
+
+
+<script type="module" src="/script/productadd.js"></script>
+<script type="module" src="/script/config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+</html>

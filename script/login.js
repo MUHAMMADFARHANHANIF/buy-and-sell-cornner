@@ -25,6 +25,7 @@ form.addEventListener('submit' , (event)=>{
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorMessage);
+    alert(errorMessage)
     
   });
 
