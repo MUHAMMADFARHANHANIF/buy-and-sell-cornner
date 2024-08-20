@@ -1,4 +1,4 @@
-import { signOut } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import {  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 import { auth, db } from "./config.js";
 
@@ -163,52 +163,19 @@ let productscards = document.querySelector('#productscards')
 
 
 
-let Logout = document.querySelector('#logout')
-
-
-
-Logout.addEventListener('click', async () => {
-
-    signOut(auth).then(() => {
-       
-        alert('logout succses')
-    }).catch((error) => {
-        console.log(error);
-
-       
-    });
-})
-
-
-
-
-
-
-
-
 let allproducts = []    
 async function getdata() {
     // const q = query(collection(db, "userproducts"), where("uid", "==", User.uid));
 
     let querySnapshot = await getDocs(collection(db, "userproducts"));
     querySnapshot.forEach((doc) => {
-        allproducts.push({...doc.data(),id:doc.id}) 
-        console.log();
+        allproducts.push(doc.data()) 
+        // console.log(doc.data());
 
         // console.log(allproducts);
         
         
     });
-
-
-
-
-
-
-
-
-
-
     renderproducts(allproducts)
     
     
@@ -229,19 +196,15 @@ async function getdata() {
 
 
   getdata()
-
   console.log(allproducts);
 
-
-
-
 // productscards.inn
-async function renderproducts(allproducts) {
-    console.log(allproducts);
+async function renderproducts(arr) {
+    console.log(arr);
     
-    await allproducts.map((element ,index)=>{
+    await arr.forEach((element)=>{
         productscards.innerHTML += `
-        <div class="card bg-base-100 w-80 shadow-xl" >
+        <div class="card bg-base-100 w-80 shadow-xl">
         <figure>
           <img class="w-full h-52" src="${element.productdimage}" alt="Shoes" >
 
@@ -253,65 +216,15 @@ async function renderproducts(allproducts) {
         </h2>
         <p>${element.productdiscription}</p>
         <h2 class="card-title">Phone:${element.ownernumber}</h2>
-        <div class="card-actions justify-end p-2 gap-3 items-center" id="${element.id}" >
+        <div class="card-actions justify-end p-2 gap-3 items-center">
         <h2 class="card-title text-xl">$${element.productdprice}</h2>
-        <button class="btn btn-primary"  id="buynow" >Buy Now</button>
+        <button class="btn btn-primary">Buy Now</button>
         </div>
         </div>
         </div>
         `
-        
-        // console.log(element.userinfo.uid);
-        
-        // allproducts.filter()
-        let buynow = document.querySelectorAll('#buynow')
-        buynow.forEach((element) => {
-            element.addEventListener('click', async () => {
-
-// console.log(element.parentElement.id);
-let btnproduct = allproducts.filter((elem)=>{
-   return elem.id == element.parentElement.id
-   
-})
-console.log(btnproduct);
-localStorage.setItem('products',JSON.stringify(btnproduct))
-
-window.location = "productpage.html"
-
-
-            })
     })
     
     
-    
-    
-    
-    
-    
-    
-    
-    // productshow()
-})
-
-
 }
-
-// async function productshow() {
-//                 let buynow =  document.querySelectorAll('#buynow')
-        
-//           buynow.addEventListener('click',async()=>{
-//                             console.log('ok');
-                            
-        
-        
-        
-        
-//                         }
-//         )}
-
-
-
-
-
-
 

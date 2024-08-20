@@ -1,7 +1,6 @@
 import { collection, getDocs,addDoc, query, where } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-import { storage, db,auth, productnumber } from "./config.js";
+import { storage, db } from "./config.js";
 import { uploadBytes,getDownloadURL ,ref} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js"; 
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 
 
@@ -12,86 +11,6 @@ const productdiscription = document.querySelector('#productdiscription')
 const productdprice = document.querySelector('#productprice')
 const ownername = document.querySelector('#ownername')
 const ownernumber = document.querySelector('#ownernumber')
-
-
-
-let image = document.querySelector('#userimage')
-let arr = {}
-// let productnumber = []
-
-
-onAuthStateChanged(auth, (User) => {
-  if (User) {
-      // image.innerHTML =  ` <img alt="Tailwind CSS Navbar component" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />
-                
-                
-      // `
-      const uid = User.uid;
-      async function getdata() {
-          const q = query(collection(db, "user"), where("uid", "==", User.uid));
-
-          let querySnapshot = await getDocs(q);
-          querySnapshot.forEach((doc) => {
-              arr = (doc.data())
-              console.log(productnumber.length);
-
-              productnumber.push(doc.data())
-              console.log(User.length);
-
-
-
-          });
-
-          //   console.log(User.email);
-          // console.l
-      
-              image.innerHTML = `
-
-<img alt="Tailwind CSS Navbar component" src="${arr.userimage}" />
-
-
-`
-          
-
-          
-
-      }
-
-
-
-
-
-
-
-      getdata()
-
-      // ...
-  } else {
-alert('please login first then add a new product')
-    window.location = "login.html"
-  } 
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
  // JavaScript to handle the click event
@@ -137,8 +56,6 @@ fileInput.addEventListener('change', function(event) {
       
   }
 // let allproducts = []
-
-
 form.addEventListener('submit',async(event)=>{
     event.preventDefault()
     console.log(producttitle.value);
@@ -148,6 +65,7 @@ form.addEventListener('submit',async(event)=>{
     console.log(ownernumber.value);
     let userimageurl = await showUrl(file)
 
+    
     async function adddata() {
         
         try {
@@ -157,10 +75,7 @@ form.addEventListener('submit',async(event)=>{
             producttitle:producttitle.value,
             productdiscription: productdiscription.value,
             productdprice: productdprice.value,
-            productdimage: userimageurl,
-            userinfo:arr,
-            itemnumber: productnumber.length 
-
+            productdimage: userimageurl
             
 
           });

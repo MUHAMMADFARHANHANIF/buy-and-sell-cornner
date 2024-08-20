@@ -27,7 +27,7 @@ export const db = getFirestore(app);
 
 export const storage = getStorage(firebaseApp, "gs://buy-and-sells-corner.appspot.com");
 
-export let productnumber = []
+
 
 
 
@@ -42,6 +42,7 @@ export let productnumber = []
 
 
 export 
+let Logout = document.querySelector('#logout')
 let image = document.querySelector('#userimage')
 let loginAvater = document.querySelector('#loginAvater')
 
@@ -63,13 +64,26 @@ let loginAvater = document.querySelector('#loginAvater')
                 let querySnapshot = await getDocs(q);
                 querySnapshot.forEach((doc) => {
                     arr = (doc.data())
-                    // console.log(arr);
+                    console.log(arr);
 
 
                 });
 
                 //   console.log(User.email);
-                // console.l
+                // console.log(arr);
+            
+                // export newarr = getdata()
+
+
+
+                
+                // if (newarr.length == 0) {
+
+                //     newarr = [{userimage:"https://cdn-icons-png.flaticon.com/512/149/149071.png"}]
+                //     // return
+                // }else{newarr = newarr}
+                // console.log(newarr);
+
             
                     image.innerHTML = `
     
@@ -87,6 +101,17 @@ let loginAvater = document.querySelector('#loginAvater')
 
 
 
+Logout.addEventListener('click', async () => {
+
+                    signOut(auth).then(() => {
+                       
+                        alert('logout succses')
+                    }).catch((error) => {
+                        console.log(error);
+            
+                       
+                    });
+                })
 
 
             getdata()
@@ -113,6 +138,12 @@ let loginAvater = document.querySelector('#loginAvater')
           
         }
     });
+
+
+
+
+   
+
 
 
 
